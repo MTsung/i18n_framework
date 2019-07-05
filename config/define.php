@@ -9,10 +9,13 @@
 	define('WEB_PATH',str_replace(str_replace("\\","/",$_SERVER['DOCUMENT_ROOT']),"",str_replace("\\","/",dirname(dirname(__FILE__)))));
 
 	//定義網站預設controller
-	define('INDEX_PATH','index');
+	define('INDEX_PATH',MTsung\config::INDEX_PATH);
 	
 	//定義網站預設語言
-	define('LANG','zh-tw');
+	define('LANG',MTsung\config::LANG);
+
+	//資料表前墜
+	define('PREFIX',MTsung\config::TABLE_PREFIX);
 
 	//現在時間
 	define('DATE',date("Y-m-d H:i:s"));

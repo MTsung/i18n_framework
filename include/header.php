@@ -40,19 +40,6 @@
 	//開啟session
 	session_start();
 
-	if(php_sapi_name() != "cli"){
-		//避免被偽造PHPSESSID攻擊 前一個IP與瀏覽器不同時將SESSION清除
-		if(isset($_SESSION['LAST_USER_AGENT']) && isset($_SESSION['LAST_REMOTE_ADDR'])){
-			if(($_SERVER['REMOTE_ADDR'] !== $_SESSION['LAST_REMOTE_ADDR']) && ($_SERVER['HTTP_USER_AGENT'] !== $_SESSION['LAST_USER_AGENT'])){
-				session_destroy();
-				header('Refresh:0;');
-			}
-		}
-		$_SESSION['LAST_REMOTE_ADDR'] = @$_SERVER['REMOTE_ADDR'];
-		$_SESSION['LAST_USER_AGENT'] = @$_SERVER['HTTP_USER_AGENT'];
-		
-	}
-
 	function secondAutoload($file){
 		$file = str_replace("MTsung\\", "", $file);
 	    $filename = APP_PATH."/class/".$file.".class.php";
