@@ -135,7 +135,7 @@ HTTP狀態碼+跳到指定頁面
 
 ---
 
-##### isAjax
+##### isAjax()
 是否為ajax
 
 ---
@@ -176,6 +176,8 @@ HTTP狀態碼+跳到指定頁面
 ---
 
 #### class目錄
+
+	檔名請設定為**class名.class.php**，使用時會自動載入
 
 ````
 ├── backup.class.php
