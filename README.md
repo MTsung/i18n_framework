@@ -154,7 +154,7 @@ HTTP狀態碼+跳到指定頁面
 ├── view/
 ├── .htaccess
 ├── index.php
-├── robots.txt
+└── robots.txt
 ````
 
 | 目錄 | 簡介 |
