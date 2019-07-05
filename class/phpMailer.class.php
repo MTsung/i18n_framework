@@ -10,15 +10,7 @@ namespace MTsung{
 
 	class phpMailer extends \PHPMailer{
 		var $console;
-		var $config = [
-			'SMTPSecure' => "",
-			'Host' => "",
-			'Port' => "",
-			'Username' => "",
-			'Password' => "",
-			'senderEmail' => "",
-			'senderName' => "",
-		];
+		var $config = config::SMTP;
 
 		/**
 		 * PHPMailer設定

@@ -6,7 +6,15 @@
 namespace MTsung{
 
 	abstract class config{
-		const ASD = "ZXC";
+		const SMTP = [
+			'SMTPSecure' => "ssl",
+			'Host' => "smtp.gmail.com",
+			'Port' => "465",
+			'Username' => "",
+			'Password' => "",
+			'senderEmail' => "",
+			'senderName' => "",
+		];
 	}
 
 }

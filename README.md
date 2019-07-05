@@ -54,7 +54,7 @@ $console->path[2] //3
 * 使用 $console->getLabel()、$console->getMessage()取得label
 
 #### 使用gmail SMTP發信設定
-1. gmail帳密到 `後台相關 > 系統管理 > 系統設定 > SMTP郵件設定` 設定  
+1. gmail帳密到 config 設定  
 2. 將「安全性較低的應用程式存取權限」設為「啟用」  
 [https://myaccount.google.com/lesssecureapps](https://myaccount.google.com/lesssecureapps)
 3. 解除人機驗證鎖定  
