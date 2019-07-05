@@ -1,0 +1,13 @@
+Options -Indexes
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    #RewriteCond %{HTTPS} off
+    #RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+	RewriteCond $1 !^(robots\.txt|sitemap\.xml|public|\.well-known|$)
+    RewriteRule ^(.*)$ index.php [L,QSA]
+
+
+</IfModule>
+

@@ -1,0 +1,7 @@
+/data/*
+!/data/10000
+/data/10000/view/templates_c
+/view/templates_c
+/sessionTemp/*
+backup.txt
+count.txt

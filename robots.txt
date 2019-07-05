@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /serback/
+Disallow: /include/
+Disallow: /output/
+Disallow: /upload/
+Disallow: /css/
+Disallow: /js/
+Disallow: /fonts/
+Disallow: /web/
+Disallow: /data/
