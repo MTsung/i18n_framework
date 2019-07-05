@@ -5,20 +5,20 @@
 * 建議 PHP >= 7.0
 * OpenSSL PHP Extension
 * Apache
-* mysql/mariadb
+* mysql or mariadb
 * 確認 Apache 伺服器已啟用 mod_rewrite 模組，否則 .htaccess 設定值將無法使用。
 
 ---
 
 ### 目錄權限
 
-	public、view資料夾必須給伺服器有寫入權限，否則程式將無法運作。
+	public、view 資料夾必須給 Apache 有寫入權限，否則程式將無法運作。
 
 ---
 
 ### 使用套件
 
-* [adodb 5](https://adodb.org) 資料庫套件
+* [adodb5](https://adodb.org) 資料庫套件
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer) SMTP發信
 * [smarty](https://www.smarty.net/) 模板引擎
 
@@ -32,8 +32,8 @@
 1. http://localhost/about/1/3 => controller/about.php
 2. http://localhost/ => controller/index.php
 3. http://localhost/admin/login => controller/admin/login.php ; 無admin資料夾 => controller/admin.php
-4. http://localhost/zh-tw/admin/login => controller/admin/login.php
-樣板也自動連接至對應view/web內的html。
+4. http://localhost/zh-tw/admin/login => controller/admin/login.php  
+* 樣板也自動連接至對應view/web內的html。
 
 如需取得網址參數，使用
 ````php
@@ -148,27 +148,13 @@ HTTP狀態碼+跳到指定頁面
 ├── class/
 ├── config/
 ├── controller/
-├── css/
-├── data/
-├── example/
-├── fonts/
-├── images/
 ├── include/
-├── js/
-├── module/
+├── public/
+├── temp/
 ├── view/
 ├── .htaccess
-├── 404.html
-├── QRcode.php
-├── ajax.php
-├── barcode.php
-├── favicon.ico
-├── firebase-messaging-sw.js
 ├── index.php
-├── mathcode.php
 ├── robots.txt
-├── upload.php
-└── verifycode.php
 ````
 
 | 目錄 | 簡介 |
@@ -176,30 +162,16 @@ HTTP狀態碼+跳到指定頁面
 | class | 類別放置區域 |
 | config | 設定檔放置位置 |
 | controller | 控制器 |
-| css | 預設css檔案位置 |
-| data | 切版檔案放置位置，預設為data/10000 |
-| example | 一些套板smarty範例 |
-| fonts | 預設字型位置 |
-| images | 預設圖片位置 |
-| include | 使用的套件放置位置 |
-| js | 預設javascript檔案位置 |
-| module | 預設樣板 |
+| public | 語言檔、上傳、輸出等公開檔案放置位置 |
+| temp | 暫存資料夾 |
+| include | 使用的套件、路由核心放置位置 |
 | view | 樣板 |
 
 | 檔案 | 簡介 |
 | ------ | ------ |
 | .htaccess | apache 設定檔 |
-| 404.html | 預設404頁面樣板 |
-| QRcode.php | QRcode產生 |
-| ajax.php | 一些ajax |
-| barcode.php | 條碼產生 |
-| favicon.ico | 網站圖示 |
-| firebase-messaging-sw.js | fcm用 |
 | index.php | 程式的進入點 |
-| mathcode.php | 人次計數器顯示 |
 | robots.txt | robots.txt |
-| upload.php | 上傳檔案程式 |
-| verifycode.php | 驗證碼產生 |
 
 ---
 
