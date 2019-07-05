@@ -12,11 +12,10 @@ namespace MTsung{
 		var $path;
 
 		var $config = [
-			"CSRFKey" => "MTsung",		//token金鑰
-			"CSRFType" => "md5",		//token加密方式
-			"POSTTime" => 0.5,			//連續POST最小時間
-			"csrfWhitelist" => [
-			]							//csrf白名單
+			"CSRFKey" => "MTsung",							//token金鑰
+			"CSRFType" => "md5",							//token加密方式
+			"POSTTime" => 0.5,								//連續POST最小時間
+			"csrfWhitelist" => config::CSRF_WHITELIST		//csrf白名單
 		];
 		var $languageArray = [];
 
@@ -237,6 +236,7 @@ namespace MTsung{
 			if($_POST) $_POST = $this->trimData($_POST);
 
 			include_once($file);
+			
 
 			$this->design->setData("_GET", @$this->XXSDataVerifty($_GET));
 			$this->design->setData("_POST", @$this->XXSDataVerifty($_POST));
