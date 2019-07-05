@@ -62,6 +62,7 @@
 	}
 	spl_autoload_register('secondAutoload');//自動載入calss
 	
+	include_once(APP_PATH.'config/config.php');
 	include_once(APP_PATH.'config/define.php');
 	include_once(APP_PATH.'config/dataBase.php');//資料庫
 	include_once(APP_PATH.'include/main.php');//核心
