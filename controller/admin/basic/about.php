@@ -1,4 +1,4 @@
 <?php
-	echo "index.php<br>";
+	echo "admin/basic/about.php<br>";
 	print_r($console->path);
 	exit;

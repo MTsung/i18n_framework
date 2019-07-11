@@ -218,23 +218,28 @@ namespace MTsung{
 		 */
 		function loadController(){
 			$console = $this;
-			$controller = $this->path;
 			$tempPath = CONTROLLER_PATH.$this->path[0];
 			foreach ($this->path as $key => $value) {
+				if($key == 0) continue;
 				if(!is_dir($tempPath)) break;
 				$tempPath .= ("/".$value);
 			}
 			if(is_dir($tempPath)){
-				$tempPath .= INDEX_PATH;
+				$tempPath .= ("/".INDEX_PATH);
 			}
 			$file = $tempPath.'.php';
+			if (!is_file($file)){
+				$t = explode("/", $tempPath);
+				$t[count($t)-1] = INDEX_PATH;
+				$file = implode("/", $t).'.php';
+			}
 			if (!is_file($file)){
 				$this->HTTPStatusCode(404);
 			}
 
 			if($_GET) $_GET = $this->trimData($_GET);
 			if($_POST) $_POST = $this->trimData($_POST);
-
+			
 			include_once($file);
 			
 
@@ -244,7 +249,7 @@ namespace MTsung{
 			$this->design->setData("data", @$data);
 			$this->design->setData("console", $this);
 
-			$this->design->loadDisplay(str_replace(CONTROLLER_PATH, "", $tempPath).'.html');
+			$this->design->loadDisplay(substr(str_replace(CONTROLLER_PATH, "", $file),0,(-1*strlen('.php'))).'.html');
 		}
 
 		/**
