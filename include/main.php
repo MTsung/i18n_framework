@@ -312,9 +312,17 @@ namespace MTsung{
 		 * 取得token
 		 * @return [type] [description]
 		 */
-		function getToken(){
+		function getToken($type=""){
 			if(!$_SESSION[FRAME_NAME]['CSRF_TOKEN'] || is_array($_SESSION[FRAME_NAME]['CSRF_TOKEN'])){
 				$_SESSION[FRAME_NAME]['CSRF_TOKEN'] = hash_hmac($this->config["CSRFType"] ,rand(),$this->config["CSRFKey"]);
+			}
+			switch ($type) {
+				case 'text':
+					return $_SESSION[FRAME_NAME]['CSRF_TOKEN'];
+					break;
+				case 'name':
+					return TOKEN_NAME;
+					break;
 			}
 			return '<input type="hidden" name="'.TOKEN_NAME.'" value="'.$_SESSION[FRAME_NAME]['CSRF_TOKEN'].'">';
 

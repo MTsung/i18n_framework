@@ -125,8 +125,11 @@ echo $console->getLabel("首頁"); // 首頁 (zt-tw.ini內無設定此key，所�
 
 ---
 
-##### getToken()
-取得CSRF token input
+##### getToken(string $type='')
+取得CSRF token
+不填參數回傳整個token input
+name 回傳token欄位name
+text 回傳token值
 
 ---
 
