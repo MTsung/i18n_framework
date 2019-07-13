@@ -309,14 +309,11 @@ namespace MTsung{
 		 */
 		function CSRFVerifty(){
 			if(!in_array($this->path[0], $this->config["csrfWhitelist"]) && $_POST){
-				$csrfWhitelist = explode("\n",$this->setting->getValue("csrfWhitelist"));//白名單
-				if (!in_array($check_csrf[0],$csrfWhitelist)) {
-					if(isset($_SESSION[FRAME_NAME]['CSRF_TOKEN']) && ($_POST[TOKEN_NAME] == $_SESSION[FRAME_NAME]['CSRF_TOKEN'])){
-						unset($_POST[TOKEN_NAME]);
-					}else{
-						$this->alert($this->getMessage('CSRF_TOKEN_NOT_TRUE'),-1);
-						exit;
-					}
+				if(isset($_SESSION[FRAME_NAME]['CSRF_TOKEN']) && ($_POST[TOKEN_NAME] == $_SESSION[FRAME_NAME]['CSRF_TOKEN'])){
+					unset($_POST[TOKEN_NAME]);
+				}else{
+					$this->alert($this->getMessage('CSRF_TOKEN_NOT_TRUE'),-1);
+					exit;
 				}
 			}
 			
