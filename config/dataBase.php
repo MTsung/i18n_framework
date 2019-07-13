@@ -39,3 +39,14 @@
 	$conn->Execute("SET GLOBAL time_zone = '".MTsung\config::TIME_ZONE."';");
 	$conn->Execute("SET time_zone = '".MTsung\config::TIME_ZONE."';");
 	
+	
+	define('DATA_PATH',APP_PATH.'data/10000/');
+	define('UPLOAD_PATH',DATA_PATH.'upload/');
+	define('OUTPUT_PATH',DATA_PATH.'output/');
+	define('LANGUAGE_PATH',DATA_PATH.'language/');
+
+	if(!is_dir(DATA_PATH)) mkdir(DATA_PATH);
+	if(!is_dir(UPLOAD_PATH)) mkdir(UPLOAD_PATH);
+	if(!is_dir(OUTPUT_PATH)) mkdir(OUTPUT_PATH);
+	
+	define('DATA_WEB_PATH',str_replace(APP_PATH,"",WEB_PATH."/".DATA_PATH));
