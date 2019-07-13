@@ -1,10 +1,6 @@
 <?php
 	include_once(APP_PATH.'include/adodb5/adodb.inc.php');// 文件 http://adodb.org/dokuwiki/doku.php
 	
-
-	//是否持續連線 
-	$isPConnect = MTsung\config::DB_IS_PCONNECT;
-
 	//資料庫資訊
 	$dbHost = MTsung\config::DB_HOST;
 	$dbUser = MTsung\config::DB_USER;
