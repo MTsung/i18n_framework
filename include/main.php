@@ -257,6 +257,15 @@ namespace MTsung{
 			$this->design->loadDisplay(substr(str_replace(APP_PATH.'controller/', "", $__file),0,(-1*strlen('.php'))).'.html');
 		}
 
+
+		/**
+		 * 設定自訂樣板名稱
+		 * @param  string $name 樣板名稱/路徑
+		 */
+		function setTemplateName($name){
+			$this->templateName = $name;
+		}
+
 		/**
 		 * 防止一直傳送表單防止、重複傳送
 		 */
