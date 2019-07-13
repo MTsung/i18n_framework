@@ -5,7 +5,8 @@
 * 建議 PHP >= 7.0
 * OpenSSL PHP Extension
 * Apache
-* mysql or mariadb
+* mysql
+* pdo_mysql 開啟
 * 確認 Apache 伺服器已啟用 mod_rewrite 模組，否則 .htaccess 設定值將無法使用。
 
 ---
