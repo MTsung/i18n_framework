@@ -15,6 +15,6 @@
 	define('DATE',date("Y-m-d H:i:s"));
 
 	define('HTTP',(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']) ? "https://" : "http://");
-	if(php_sapi_name() != "cli"){
-		define('HTTP_PATH',HTTP.$_SERVER['HTTP_HOST'].WEB_PATH.'/');
-	}
+
+	//網站網址
+	define('HTTP_PATH',HTTP.$_SERVER['HTTP_HOST'].WEB_PATH.'/');
