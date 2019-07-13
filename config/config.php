@@ -13,13 +13,11 @@ namespace MTsung{
 		const DB_IS_PCONNECT = true;				//DB是否持續連接
 
 		const TIME_ZONE = "+08:00";					//時區
-
-		const INDEX_PATH = "index";					//預設控制器
-		const LANG = "zh-tw";						//預設語系
-		const TABLE_PREFIX = "database_";			//資料表前墜
+		
+		const TABLE_PREFIX = "database_";			//網站資料表前墜
 
 		
-		const SMTP = [								//smtp設定
+		const SMTP = [								//預設smtp設定
 			'SMTPSecure' => "ssl",
 			'Host' => "smtp.gmail.com",
 			'Port' => "465",
