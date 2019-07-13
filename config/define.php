@@ -14,6 +14,7 @@
 	//現在時間
 	define('DATE',date("Y-m-d H:i:s"));
 
+	//是否ssl
 	define('HTTP',(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']) ? "https://" : "http://");
 
 	//網站網址
