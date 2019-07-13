@@ -220,7 +220,7 @@ namespace MTsung{
 		 */
 		function loadController(){
 			$console = $this;
-			$tempPath = CONTROLLER_PATH.$this->path[0];
+			$tempPath = APP_PATH.'controller/'.$this->path[0];
 			foreach ($this->path as $key => $value) {
 				if($key == 0) continue;
 				if(!is_dir($tempPath)) break;
@@ -254,7 +254,7 @@ namespace MTsung{
 			if($this->templateName){//自訂樣板名稱
 				$this->design->loadDisplay($this->templateName);
 			}
-			$this->design->loadDisplay(substr(str_replace(CONTROLLER_PATH, "", $__file),0,(-1*strlen('.php'))).'.html');
+			$this->design->loadDisplay(substr(str_replace(APP_PATH.'controller/', "", $__file),0,(-1*strlen('.php'))).'.html');
 		}
 
 		/**

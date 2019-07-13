@@ -24,7 +24,3 @@
 	if(php_sapi_name() != "cli"){
 		define('HTTP_PATH',HTTP.$_SERVER['HTTP_HOST'].WEB_PATH.'/');
 	}
-
-	
-	define('CONTROLLER_PATH',APP_PATH.'controller/');
-	define('INCLUDE_PATH',APP_PATH.'include/');
