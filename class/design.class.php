@@ -21,12 +21,12 @@ namespace MTsung{
     		$this->tpl->right_delimiter = '})';
             $this->tpl->setTemplateDir(
                 array(
-                    'one' => APP_PATH . "view/web",
+                    'one' => DATA_PATH . "view/web",
                 )
             );
-    		$this->tpl->compile_dir = APP_PATH . "temp/templates_c";
-    		$this->tpl->config_dir = APP_PATH . "temp/configs/";
-    		$this->tpl->cache_dir = APP_PATH . "temp/cache/";
+    		$this->tpl->compile_dir = DATA_PATH . "temp/templates_c";
+    		$this->tpl->config_dir = DATA_PATH . "temp/configs/";
+    		$this->tpl->cache_dir = DATA_PATH . "temp/cache/";
         }
 
         /**

@@ -19,6 +19,8 @@ namespace MTsung{
 		];
 		var $languageArray = [];
 
+		private $templateName = "";
+
 		/**
 		 * @param ADO 		$conn 
 		 * @param design 	$design  
@@ -249,6 +251,9 @@ namespace MTsung{
 			$this->design->setData("data", @$data);
 			$this->design->setData("console", $this);
 
+			if($this->templateName){//自訂樣板名稱
+				$this->design->loadDisplay($this->templateName);
+			}
 			$this->design->loadDisplay(substr(str_replace(CONTROLLER_PATH, "", $__file),0,(-1*strlen('.php'))).'.html');
 		}
 

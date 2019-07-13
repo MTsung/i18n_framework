@@ -25,10 +25,11 @@
 		define('HTTP_PATH',HTTP.$_SERVER['HTTP_HOST'].WEB_PATH.'/');
 	}
 
+	define('DATA_PATH',APP_PATH.'data/10000/');
+	define('DATA_WEB_PATH',str_replace(APP_PATH,"",WEB_PATH."/".DATA_PATH));
+	
 	define('CONTROLLER_PATH',APP_PATH.'controller/');
 	define('INCLUDE_PATH',APP_PATH.'include/');
-	define('DATA_PATH',APP_PATH.'public/');
-	define('DATA_WEB_PATH',WEB_PATH.'public/');
 	define('UPLOAD_PATH',DATA_PATH.'upload/');
 	define('OUTPUT_PATH',DATA_PATH.'output/');
 	define('LANGUAGE_PATH',DATA_PATH.'language/');

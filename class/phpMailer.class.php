@@ -92,10 +92,10 @@ namespace MTsung{
 			$tpl = new \Smarty();
 			$tpl->left_delimiter = '({';
 			$tpl->right_delimiter = '})';
-			$tpl->template_dir = APP_PATH . "view/mail";
-			$tpl->compile_dir = APP_PATH . "temp/templates_c/";
-			$tpl->config_dir = APP_PATH . "temp/configs/";
-			$tpl->cache_dir = APP_PATH . "temp/cache/"; 
+			$tpl->template_dir = DATA_PATH . "view/mail";
+			$tpl->compile_dir = DATA_PATH . "temp/templates_c/";
+			$tpl->config_dir = DATA_PATH . "temp/configs/";
+			$tpl->cache_dir = DATA_PATH . "temp/cache/"; 
 
 
 			$tpl->assign("console",$this->console);
