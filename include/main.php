@@ -227,20 +227,20 @@ namespace MTsung{
 			if(is_dir($tempPath)){
 				$tempPath .= ("/".INDEX_PATH);
 			}
-			$file = $tempPath.'.php';
-			if (!is_file($file)){
+			$__file = $tempPath.'.php';
+			if (!is_file($__file)){
 				$t = explode("/", $tempPath);
 				$t[count($t)-1] = INDEX_PATH;
-				$file = implode("/", $t).'.php';
+				$__file = implode("/", $t).'.php';
 			}
-			if (!is_file($file)){
+			if (!is_file($__file)){
 				$this->HTTPStatusCode(404);
 			}
 
 			if($_GET) $_GET = $this->trimData($_GET);
 			if($_POST) $_POST = $this->trimData($_POST);
 			
-			include_once($file);
+			include_once($__file);
 			
 
 			$this->design->setData("_GET", @$this->XXSDataVerifty($_GET));
@@ -249,7 +249,7 @@ namespace MTsung{
 			$this->design->setData("data", @$data);
 			$this->design->setData("console", $this);
 
-			$this->design->loadDisplay(substr(str_replace(CONTROLLER_PATH, "", $file),0,(-1*strlen('.php'))).'.html');
+			$this->design->loadDisplay(substr(str_replace(CONTROLLER_PATH, "", $__file),0,(-1*strlen('.php'))).'.html');
 		}
 
 		/**

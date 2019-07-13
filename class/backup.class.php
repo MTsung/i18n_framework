@@ -20,7 +20,7 @@ namespace MTsung{
 		 * @param  [type] $fileName [description]
 		 * @return [type]           [description]
 		 */
-		function importDatabase($fileName){
+		static function importDatabase($fileName){
 			ignore_user_abort(true);
 			set_time_limit(0);
 			ini_set("memory_limit",-1);
@@ -50,7 +50,7 @@ namespace MTsung{
 		 * 匯出資料庫
 		 * @return [type]            [description]
 		 */
-		function exportDatabase(){
+		static function exportDatabase(){
 			ignore_user_abort(true);
 			set_time_limit(0);
 			ini_set("memory_limit",-1);
