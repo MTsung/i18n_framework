@@ -254,7 +254,26 @@ namespace MTsung{
 			if($this->templateName){//自訂樣板名稱
 				$this->design->loadDisplay($this->templateName);
 			}
-			$this->design->loadDisplay(substr(str_replace(APP_PATH.'controller/', "", $__file),0,(-1*strlen('.php'))).'.html');
+
+			
+			$templateDir = current($this->design->tpl->getTemplateDir());
+			$tempPath = $templateDir.$this->path[0];
+			foreach ($this->path as $key => $value) {
+				if($key == 0) continue;
+				if(!is_dir($tempPath)) break;
+				$tempPath .= ("/".$value);
+			}
+			if(is_dir($tempPath)){
+				$tempPath .= ((($templateDir!=$tempPath)?"/":"").INDEX_PATH);
+			}
+			$__file = $tempPath.'.html';
+
+			if (!is_file($__file)){
+				$t = explode("/", $tempPath);
+				$t[count($t)-1] = INDEX_PATH;
+				$__file = implode("/", $t).'.html';
+			}
+			$this->design->loadDisplay(str_replace(str_replace("/", "\\", APP_PATH),"",$__file));
 		}
 
 
