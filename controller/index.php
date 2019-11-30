@@ -1,4 +1,2 @@
 <?php
-	echo "index.php<br>";
-	print_r($console->path);
-	exit;
+	$data["hi"] = "index.php";

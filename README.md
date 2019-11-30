@@ -3,24 +3,13 @@
 ### 伺服器環境
 
 * 建議 PHP >= 7.0
-* OpenSSL PHP Extension
 * Apache
-* mysql
-* pdo_mysql 開啟
-* 確認 Apache 伺服器已啟用 mod_rewrite 模組，否則 .htaccess 設定值將無法使用。
-
----
-
-### 目錄權限
-
-	data 資料夾必須給 Apache 有寫入權限，否則程式將無法運作。
+* Apache mod_rewrite 模組
 
 ---
 
 ### 使用套件
 
-* [adodb5](https://adodb.org) 資料庫套件
-* [PHPMailer](https://github.com/PHPMailer/PHPMailer) SMTP發信
 * [smarty](https://www.smarty.net/) 模板引擎
 
 ---
@@ -34,7 +23,7 @@
 2. http://localhost/ => controller/index.php
 3. http://localhost/admin/login => controller/admin/login.php ; 無admin資料夾 => controller/admin.php
 4. http://localhost/zh-tw/admin/login => controller/admin/login.php  
-* 樣板也自動連接至對應view/web內的html。
+* 樣板也自動連接至對應templates/內的html。
 
 如需取得網址參數，使用
 ````php
@@ -54,14 +43,6 @@ $console->path[2] //3
 
 * 使用 $console->getLabel()、$console->getMessage()取得label
 
-#### 使用gmail SMTP發信設定
-1. gmail帳密到 config 設定  
-2. 將「安全性較低的應用程式存取權限」設為「啟用」  
-[https://myaccount.google.com/lesssecureapps](https://myaccount.google.com/lesssecureapps)
-3. 解除人機驗證鎖定  
-[https://accounts.google.com/b/0/DisplayUnlockCaptcha](https://accounts.google.com/b/0/DisplayUnlockCaptcha)
-
----
 
 ### 常用函式介紹
 
@@ -87,7 +68,7 @@ echo $console->getLanguage(); // zh-tw
 zh-tw.ini
 
 ````
-ERROR_PRODUCT_STOCK = "失敗，{1} 庫存不足 {2}"
+ERROR_PRODUCT_STOCK = "失敗，{0} 庫存不足 {1}"
 ````
 
 index.php
@@ -115,32 +96,12 @@ echo $console->getLabel("首頁"); // 首頁 (zt-tw.ini內無設定此key，所�
 
 ---
 
-##### alert(string $message,string $url)
-
-| 參數名稱 | 說明 |
-| ------ | ------ |
-| message | 訊息 |
-| url | 轉跳網址 -1:上一頁 |
-
-顯示alert。若為ajax，則回傳json格式
-
----
-
 ##### getToken(string $type='')
 取得CSRF token
 不填參數回傳整個token input
-name 回傳token欄位name
-text 回傳token值
-
----
-
-##### HTTPStatusCode(int $num,string $url)
-HTTP狀態碼+跳到指定頁面
-
----
-
-##### isAjax()
-是否為ajax
+name 回傳token 欄位name
+text 回傳token 值
+json 回傳token json格式
 
 ---
 
@@ -176,33 +137,3 @@ HTTP狀態碼+跳到指定頁面
 | .htaccess | apache 設定檔 |
 | index.php | 程式的進入點 |
 | robots.txt | robots.txt |
-
----
-
-#### class目錄
-
-檔名請設定為[class名].class.php，使用時會自動載入
-
-````
-├── backup.class.php
-├── design.class.php
-└── phpMailer.class.php
-````
-
-| 檔案 | 簡介 |
-| ------ | ------ |
-| backup.class.php | 網站備份 |
-| design.class.php | 樣板 |
-| phpMailer.class.php | SMTP發信 |
-
-#### include目錄
-
-````
-├── header.php
-└── main.php
-````
-
-| 檔案 | 簡介 |
-| ------ | ------ |
-| header.php | 一些設定 |
-| main.php | 路由核心 |

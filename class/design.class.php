@@ -19,14 +19,10 @@ namespace MTsung{
         	$this->tpl = new \Smarty();
     		$this->tpl->left_delimiter = '({';
     		$this->tpl->right_delimiter = '})';
-            $this->tpl->setTemplateDir(
-                array(
-                    'one' => DATA_PATH . "view/web",
-                )
-            );
-    		$this->tpl->compile_dir = DATA_PATH . "temp/templates_c";
-    		$this->tpl->config_dir = DATA_PATH . "temp/configs/";
-    		$this->tpl->cache_dir = DATA_PATH . "temp/cache/";
+            $this->tpl->template_dir = APP_PATH."templates";
+    		$this->tpl->compile_dir = APP_PATH."temp/templates_c";
+    		$this->tpl->config_dir = APP_PATH."temp/configs/";
+    		$this->tpl->cache_dir = APP_PATH."temp/cache/";
         }
 
         /**
@@ -34,15 +30,9 @@ namespace MTsung{
          * @param  String $value 樣板檔名 e.g.,index.html
          */
         public function loadDisplay($value){
-            $isFile = 0;
-            $temp = $this->tpl->getTemplateDir();
-            foreach ($temp as $path) {
-                if(is_file($path.$value)){
-                    $isFile++;
-                    break;
-                }
-            }
-        	if(!$isFile){
+            // echo $this->tpl->template_dir[0].$value;exit;
+        	if(!is_file($this->tpl->template_dir[0].$value)){
+                ob_clean();
                 echo "design is null.";
                 error_log("design is null.".$value);
                 exit;

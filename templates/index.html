@@ -1,0 +1,11 @@
+({$data.hi})
+({include "_menu_.html"})
+<form method="POST">
+	<input type="text" name="test" value="({$_POST.test})">
+	<input type="text" name="test1" value="({$_POST.test1})">
+	<input type="submit" value="submit">
+	({$console->getToken()})
+</form>
+({$_POST.test})
+<br>
+({$_POST.test1})

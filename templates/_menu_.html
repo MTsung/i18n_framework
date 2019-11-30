@@ -1,0 +1,10 @@
+<ul>
+	({if $lang=="en-us"})
+		<li><a href="({HTTP_PATH})zh-tw">繁體中文</a></li>
+	({else})
+		<li><a href="({HTTP_PATH})en-us">英文</a></li>
+	({/if})
+	<li><a href="({HTTP_URL})">({$console->getLabel("INDEX")})</a></li>
+	<li><a href="({HTTP_URL})/test">test</a></li>
+	<li><a href="({HTTP_URL})/test/about">test/about</a></li>
+</ul>

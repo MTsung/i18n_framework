@@ -8,18 +8,10 @@
 	//禁止js取得cookie
 	ini_set("session.cookie_httponly", 1);
 
-	//session過期時間
-	ini_set('session.cookie_lifetime', 86400*3);
-	ini_set('session.gc_maxlifetime', 86400*3);
-
-	//只能在https傳遞
-	ini_set('session.cookie_secure', (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']));
-
-	//快取關閉 表單重複提交
+	//快取關閉
 	header("Cache-control:no-cache");
 
-	//設定UTF-8 
-	mb_internal_encoding('utf-8');
+	//設定UTF-8
 	header("Content-Type:text/html; charset=utf-8");
 
 	//錯誤訊息直接顯示
@@ -40,19 +32,18 @@
 	//開啟session
 	session_start();
 
-	function secondAutoload($file){
+	//自動載入calss
+	function __autoloadClass($file){
 		$file = str_replace("MTsung\\", "", $file);
 	    $filename = APP_PATH."/class/".$file.".class.php";
-	    if (is_readable($filename)){
+	    if(is_readable($filename)){
 	        require $filename;
 	    }
 	}
-	spl_autoload_register('secondAutoload');//自動載入calss
+	spl_autoload_register('__autoloadClass');
 	
-	include_once(APP_PATH.'config/config.php');
 	include_once(APP_PATH.'config/define.php');
-	include_once(APP_PATH.'config/dataBase.php');//資料庫
 	include_once(APP_PATH.'include/main.php');//核心
 
 	$design = new MTsung\design();
-	$console = new MTsung\main($conn,$design);
+	$console = new MTsung\main($design);
