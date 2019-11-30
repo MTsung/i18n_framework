@@ -13,7 +13,6 @@ namespace MTsung{
 		var $config = [
 			"CSRFKey" => "MTsung",							//token金鑰
 			"CSRFType" => "md5",							//token加密方式
-			"POSTTime" => 0.5,								//連續POST最小時間
 			"csrfWhitelist" => [
 
 			]												//csrf白名單
